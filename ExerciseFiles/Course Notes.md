@@ -116,6 +116,11 @@ echo {cat,dog,fox}
 echo {cat,dog,fox}_{1..5}
 head -n1 {dir1,dir2,dir3}/lorem.txt
 ```
+{} brace expansion creates sets or ranges. .. helps create sequential items, such as in {1..10} in order. {10..1} reverse.
+Can pad with 0's as you'd like.
+Can do with intervals by 3 in {1..30..3}, and can be done with letters as well.
+{cat,dog,fox}_{1..5} can be useful for making directories. Will cycle 1-5 for the first string, then second etc.
+head -n1 shows one line only, running lorem.txt in each of dir1, dir2, dir3
 
 ### 01_07 Parameter expansion
 
@@ -130,6 +135,9 @@ echo ${greeting//e/_}
 echo ${greeting/e/_}
 echo $greeting:4:3
 ```
+NOTE NO SPACE when assigning values to parameters. Parameter expansion manipulates the value
+echo ${greeting:6:3} starting at ther 6th value, then 3 more values from there
+echo ${greeting/there/everybody} replace there with everybody. / only replaces the first instance, while // replaces every instance such as with all e with _.
 
 ### 01_08 Command substitution
 
@@ -139,6 +147,8 @@ echo "The kernel is $(uname -r)."
 echo "The Python version is $(python3 -V)."
 echo "Result: $(python3 -c 'print("Hello from Python!")' | tr [a-z] [A-Z])"
 ```
+$(...) command substitution. Old way as `...`. uname -r for release version of the kernel. Command substitution can be used to add into text string.
+So in "Result..." command substitution uses python to print the statement using python. This output is then piped (|) to tr to translate all lowercase ([a-z]) to uppercase ([A-Z]).
 
 ### 01_09 Arithmetic expansion
 
@@ -148,6 +158,8 @@ echo $((4-2))
 echo $(( 4*5 ))
 echo $(( 4 / 5 ))
 ```
+$[] is deprecated version. Use spaces in general so you don't have to remember when there are space sensitive cases. 
+4 / 5 is 0.8, but here it is 0, since it can only do arithmetic with integers. 
 
 ### 02_01 Understanding Bash script syntax
 
