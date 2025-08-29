@@ -33,6 +33,7 @@ echo $SHELL
 echo $PATH
 env
 ```
+$PWD current working directory, $OLDPW previous working directory, $USER user accont name is stored in
 
 ### 01_02 Pipes and redirections
 
@@ -57,6 +58,7 @@ multiline
 text string
 EndOfText
 ```
+Pipes (|) send output of one process to another. cat looks at content of a file. with | less breaks the text into pages, q to exit. | wc for lines, words, and characters in order.  Streams: 0 is standard input, 1 is standard output, 2 is standard error. ls lists content of directory. > is output redirection (truncate). >> is output redirection (append). 1 is assumed when working with redirection, but can use 2> for explicitly asking for error output. < is input redirection take information in file, making it seems like it was taken as the input. << is a here document. Using this after the << is the limit string, good for instructions. Adding - after << removes leading tabs.
 
 ### 01_03 Bash builtins and other commands
 
