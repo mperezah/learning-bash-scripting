@@ -58,7 +58,13 @@ multiline
 text string
 EndOfText
 ```
-Pipes (|) send output of one process to another. cat looks at content of a file. with | less breaks the text into pages, q to exit. | wc for lines, words, and characters in order.  Streams: 0 is standard input, 1 is standard output, 2 is standard error. ls lists content of directory. > is output redirection (truncate). >> is output redirection (append). 1 is assumed when working with redirection, but can use 2> for explicitly asking for error output. < is input redirection take information in file, making it seems like it was taken as the input. << is a here document. Using this after the << is the limit string, good for instructions. Adding - after << removes leading tabs.
+Pipes (|) send output of one process to another. 
+cat looks at content of a file. 
+with | less breaks the text into pages, q to exit. 
+| wc for lines, words, and characters in order.  
+Streams: 0 is standard input, 1 is standard output, 2 is standard error. 
+ls lists content of directory. 
+The > is output redirection (truncate). >> is output redirection (append). 1 is assumed when working with redirection, but can use 2> for explicitly asking for error output. < is input redirection take information in file, making it seems like it was taken as the input. << is a here document. Using this after the << is the limit string, good for instructions. Adding - after << removes leading tabs.
 
 ### 01_03 Bash builtins and other commands
 
@@ -75,6 +81,9 @@ enable echo
 help echo
 help -d
 ```
+echo outputs text, ends line with new line character. printf does not add new line character. 
+command version vs builtin, just for explicitly saying. command -V followed by the name of the program will show whether it is builtin or command, but builtins will take precedent over commands. 
+enable -n followed by command disables the builtin command. enable -n by itself shows disabled builtins.
 
 ### 01_05 Bash expansions and substitutions
 
@@ -85,6 +94,9 @@ cd Solutions
 cd
 echo ~-
 ```
+~ represents value of user's $HOME environment. command whoami show's user's name. 
+cd followed by a directory is change directory to that directory. cd by itself goes back to home directory.
+echo ~- shows oldworking directory.
 
 ### 01_06 Brace expansion
 
