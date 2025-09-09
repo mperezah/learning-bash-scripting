@@ -176,6 +176,17 @@ chmod +x myscript.sh
 
 ./myscript.sh
 ```
+Oneliners are useful for commands that are often used. Long commands can be split across multiple lines with line continuation characters (\).
+Combining multiple lines is easier with bash scripts. A txt file with a series of commands.
+Run with bash myscript.sh.
+More common, make an executable bash script. Includes a shebang as the first line (#!/usr/bin/env bash).
+Make executable with chmod +x myscript.
+
+nano myscript.sh makes script. Here you would add the shebang #!/usr/bin/env bash, then whatever afterwards. Can make comments with #.
+Ctrl + O saves the file, Ctrl + X leaves the script editor. Then can run with bash myscript.sh.
+Make it executable with chmod +x(makes executible) myscript.sh(which script).
+Now can run with ./(then the script, in this case)myscript.sh.
+The script runs in a non-interactive shell, so not affected by other changes.
 
 ### 02_02 Displaying text with 'echo'
 
