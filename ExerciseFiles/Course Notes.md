@@ -209,6 +209,16 @@ echo -n "No newline!"
 echo -n "Part of"; echo -n " a statement"
 echo -n "Part of"; echo " a statement"
 ```
+echo Prints text to the standard output. echo hello just repeats hello. Can use parameter expansion with it
+worldsize=big (note: no space!), then echo hello $worldsize world
+
+Can also use command substitution within a quotations echo "The kernel is $(uname -r)" (uname - r gets the kernal)
+No quotes interprets things as it sees them, so cannot just use paranthesis. Can \ behind characters to escape them.
+Single quotes means everything will be interpreted as text, no substitutions or anything.
+Use double quotes, as they're usually more useful. 
+
+echo by itself creates blank line. Can use many of these broken up by ; to create many lines
+Can use echo -n to not create a new line
 
 ### 02_03 Working with variables
 
