@@ -231,6 +231,11 @@ echo $mygreeting
 echo $mygreeting2
 echo $number
 ```
+Allow to store and retrieve values by name, a type of parameter expansion.
+Alphanumeric characters, and are case-sensitive with no spaces, so no spaces between the equal sign.
+If you want the variable to have spaces, put it in quotations.
+
+Call it with a $. Such as $mygreeting
 
 ```bash
 nano myscript.sh
@@ -259,11 +264,15 @@ echo "The value of the upperstring variable is: $upperstring"
 
 ./myscript.sh
 ```
+Variables can be changed after using them. 
+To avoid this, declare -r var=... in order to make it read-only, not changable.
+declare -l var=... to make the variable lowercase. declare -u var=... to make variable uppercase.
 
 ```bash
 declare -p
 echo $USER
 ```
+declare -p tosee all variables that have been set in this session.
 
 ### 02_04 Working with numbers
 
@@ -310,6 +319,27 @@ echo $(( RANDOM % 10 ))
 echo $(( 1 + RANDOM % 10 ))
 echo $(( RANDOM % 2 ))
 ```
+$((...)) arithmetic expansion returns the results of mathematical operations.
+
+((...)) arithmetic evaluation performs calculations and changes the value of variables.
+
++, -, *, /, % (modulo), ** (exponentiation).
+
+Can only do arithmetic with integers though.
+
+((a+=3)) adds 3 and modifies the variable. ((a++)) adds 1. ((a--)) subtracts 1.
+You have to echo the results, but it is an exit status.
+
+In this case, a=$a+2, you will get 7+2, as in this way $a is being read as a string.
+declare -i explicitly states that a variable is an integer.
+Use bc (basic calculator) or awk to do more precise calculations. 
+echo "1/3" | bc still gives 0, but echo "scale=3; 1/3" | bc will give .333, a scale of 3.
+
+Can declare variables that can be called in another variable.
+declare -i c=1, declare -i d=3. Then e=$(echo "scale=3: $c/$d" | bc). This treats the result as a string, not an integer.
+
+The $RANDOM variable returns integer between 0 and 32,767.
+echo $((RANDOM % 10)) gives 0-9, echo $((RANDOM % 10)) gives 1-10, echo $(( RANDOM % 2 )) is basically a coin flip, 0 or 1.
 
 ### 02_05 Comparing values with test
 
